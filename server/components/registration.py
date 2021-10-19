@@ -56,20 +56,15 @@ class Module_registration:
                 if(user_data[0][0] == password.hexdigest()):
                     result["id_curent_user"] = user_data[0][1]
                     result["status"] = "ok"
-                    self.db.close()
-                    return result
                 else: 
                     result["status"] = "fail"
                     result["message"] = "Пароли не совпадают"
-                    self.db.close()
-                    return result
+                  
             else:
                 result["status"] = "fail"
                 result["message"] = "Логин не найден"
-                self.db.close()
-                return result
+                
             self.db.close()
-        
             return result
         except:
             result = {}
