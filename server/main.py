@@ -5,6 +5,7 @@ from public.server.components.dialog import Module_dialog
 from public.server.components.geoPosition import Module_GeoPosition
 from public.server.components.deskBoard import Module_DeskBoard
 from public.server.components.office import Module_office
+from public.server.components.presentation import Module_PresentationBoard
 # from public.server.components.
 class Server :
     def __init__(self,path2db):
@@ -29,6 +30,8 @@ class Server :
             return Module_DeskBoard(conf)
         if module_name == "office":
             return Module_office(conf)
+        if module_name == "PresentationBoard":
+            return Module_PresentationBoard(conf)
 
     def getAnswerFromComponent(self, conf):
         obj = self.getModule(self,conf["module"])

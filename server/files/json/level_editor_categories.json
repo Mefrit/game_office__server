@@ -121,6 +121,11 @@
                 "type": "desck",
                 "title": "Task Boeard_4",
                 "src": "./static/src/images/desck4.png"
+            },
+            {
+                "type": "presentation",
+                "title": "Элемент для просмотра презентаций",
+                "src": "./static/src/images/table_old.png"
             }
         ]
     },

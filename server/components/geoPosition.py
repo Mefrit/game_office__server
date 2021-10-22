@@ -28,7 +28,7 @@ class Module_GeoPosition:
 
     def deleteOflineUsers(self):
         cursor = self.db.cursor()
-        time_to_kik = time.time() - 100000
+        time_to_kik = time.time() - 1000000
         query = """ SELECT id_user FROM users WHERE time_start_session < %d OR  time_start_session IS NULL   """ % (time_to_kik)
         cursor.execute(query)
         kik_users = cursor.fetchall()
