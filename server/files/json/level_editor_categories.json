@@ -133,22 +133,22 @@
         "name": "Игры",
         "cache_elements": [
             {
-                "type": "game",
+                "type": "game_tictactoe",
                 "title": "Элемент от игры_1",
                 "src": "./static/src/images/game_2.png"
             },
             {
-                "type": "game",
+                "type": "game_tictactoe",
                 "title": "Элемент от игры_2",
                 "src": "./static/src/images/game_1.png"
             },
             {
-                "type": "game",
+                "type": "game_tetris",
                 "title": "Элемент от игры_1",
                 "src": "./static/src/images/game_21.jpg"
             },
             {
-                "type": "game",
+                "type": "game_tetris",
                 "title": "Элемент от игры_2",
                 "src": "./static/src/images/game_22.jpg"
             }

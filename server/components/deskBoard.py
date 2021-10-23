@@ -8,10 +8,10 @@ class Module_DeskBoard:
 
     @staticmethod
     def actionAddRecord(self, data):
-        print("\n\n\n")
-        print(data)
         cursor = self.db.cursor()
-        cursor.execute("INSERT INTO desk_board (owner,title,description) VALUES ( ?,?,? ) ", (data["owner"],data["title"],data["description"]))
+        print("\n\n",data)
+        cursor.execute("INSERT INTO desk_board (id_owner,title,description,id_customer,time_end,price) VALUES ( ?,?,?,?,?,?) ", 
+        (data["id_owner"],data["title"],data["description"],data["id_customer"], data["time_end"], data["price"]))
         self.db.commit()
         
         query = """SELECT MAX(`id_record`) FROM desk_board"""
@@ -25,37 +25,35 @@ class Module_DeskBoard:
         return result
         # desk_board
         
-    def actionGetRecord(self,tmp, data):
-        print("\n\n\n")
-        print(data)
+    def actionGetInfo(self,tmp, data):
         cursor = self.db.cursor()
-     
+        query = """ SELECT id_user, nick FROM users """
+        cursor.execute( query )
+        users = cursor.fetchall()
+        
+        self.db.commit()
+    
         
         query = """SELECT * FROM desk_board"""
         cursor.execute( query )
         tasks = cursor.fetchall()
-        result = {}
+      
         self.db.commit()
         self.db.close()
+        result = {}
         result["status"] = "ok"
+        result["users"] = users
         result["tasks"] = tasks
         return result
         # desk_board
 
     def returnAction(self, action, data):
-        print(data)
         return getattr(self, "action" + action)(self, data)
 
     def actionDeleteRecord(self,tmp, data):
-        print("\n\n\n")
-        print(data)
         cursor = self.db.cursor()
-     
-        
-        query = """DELETE  FROM desk_board WHERE id_record =  %s""" % (data["id_record_delete"])
 
-        print (query)
-        print ("\n\n\n")
+        query = """DELETE  FROM desk_board WHERE id_record =  %s""" % (data["id_record_delete"])
         cursor.execute( query )
         self.db.commit()
         self.db.close()
