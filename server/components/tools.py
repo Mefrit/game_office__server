@@ -1,14 +1,12 @@
 class Module_tools:
     def __init__(self,props):
         self.db = props["db"]
-
     @staticmethod
     def actionSearch(self,data):
         try:
             result = {}
             cursor = self.db.cursor()
             query = "SELECT id_user, nick FROM users WHERE nick LIKE '%" + data["nick"] + "%' " 
-
             cursor.execute( query )
             answer = cursor.fetchall()
             result["users"] = answer

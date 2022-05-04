@@ -1,12 +1,10 @@
 
 from public.server.components.modules.person import Person
 import time
-import json
-import os
+
 class Module_GeoPosition:
     def __init__(self, props):
         self.db = props["db"]
-        # self.pers = Person(name)
 
     @staticmethod
     def actionGetInfo(self, data):
@@ -51,9 +49,8 @@ class Module_GeoPosition:
         online_users = cursor.fetchall()
     
         return online_users
-    def actionGetAllUsers(self, obj,data):
-        # какой то неведомый 3й аргумент****
-        # time.time()
+    def actionGetAllUsers(self, obj, data):
+    
         cursor = self.db.cursor()
         
         query = """

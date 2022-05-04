@@ -17,7 +17,6 @@ class Server :
     def getModule(self, module_name):
         conf = {}
         conf["db"] = self.db
-      
         if module_name == "registration":
             return Module_registration(conf)
         if module_name == "tools":
